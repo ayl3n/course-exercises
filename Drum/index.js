@@ -1,4 +1,4 @@
-
+ 
 buttons = document.querySelectorAll(".drum").length
 
 function handleClick(){
@@ -8,5 +8,9 @@ function handleClick(){
 for (let i = 0; i < buttons; i++ ){
     //find  button. When ckicked, proceed to activate -handleClick-
 
-    document.querySelector("button").addEventListener("click",handleClick);
+    document.querySelectorAll(".drum")[i].addEventListener("click",function(){
+        let audio = new Audio("sounds/tom-1.mp3");
+        audio.play();
+    });
 }
+

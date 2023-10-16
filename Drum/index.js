@@ -7,13 +7,24 @@ function handleClick(){
 
 
 for (let i = 0; i < buttons; i++ ){
-    //find  button. When ckicked, proceed to activate -handleClick-
+    //find  button. When ckicked, proceed to activate makeSound
 
     document.querySelectorAll(".drum")[i].addEventListener("click",function(){
        this.style.color = "white";
 
-       let buttonInnerHTML = this.innerHTML
-       switch (buttonInnerHTML){
+       let buttonInnerHTML = this.innerHTML;
+       makeSound(buttonInnerHTML);
+       
+    });
+}
+//detect keypress in keyboard to activate makeSound
+document.addEventListener("keydown", function(event){
+    makeSound(event.key)
+})
+
+
+function makeSound(key){
+    switch (key){
         case "w":
             let audioW = new Audio("sounds/crash.mp3");
           audioW.play();
@@ -48,12 +59,8 @@ for (let i = 0; i < buttons; i++ ){
             let audioL = new Audio("sounds/tom-4.mp3")
             audioL.play()
             break;
-       }
-    });
+    } 
 }
 
 
 
-
-//let audio = new Audio("sounds/tom-1.mp3");
-  //      audio.play();

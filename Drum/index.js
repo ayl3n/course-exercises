@@ -1,10 +1,6 @@
  
 buttons = document.querySelectorAll(".drum").length
 
-function handleClick(){
-    alert("I got clicked!");
-}
-
 
 for (let i = 0; i < buttons; i++ ){
     //find  button. When ckicked, proceed to activate makeSound
@@ -19,7 +15,8 @@ for (let i = 0; i < buttons; i++ ){
 }
 //detect keypress in keyboard to activate makeSound
 document.addEventListener("keydown", function(event){
-    makeSound(event.key)
+    makeSound(event.key);
+    this.style.color = "white";
 })
 
 
@@ -61,6 +58,5 @@ function makeSound(key){
             break;
     } 
 }
-
 
 

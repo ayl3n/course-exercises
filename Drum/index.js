@@ -6,17 +6,18 @@ for (let i = 0; i < buttons; i++ ){
     //find  button. When ckicked, proceed to activate makeSound
 
     document.querySelectorAll(".drum")[i].addEventListener("click",function(){
-       this.style.color = "white";
 
        let buttonInnerHTML = this.innerHTML;
        makeSound(buttonInnerHTML);
-       
+       buttonAnimation(buttonInnerHTML);
+
     });
 }
+
 //detect keypress in keyboard to activate makeSound
 document.addEventListener("keydown", function(event){
     makeSound(event.key);
-    this.style.color = "white";
+    buttonAnimation(event.key);
 })
 
 
@@ -59,4 +60,12 @@ function makeSound(key){
     } 
 }
 
+function buttonAnimation(currentKey) {
+   let activeButton = document.querySelector("." + currentKey);
+   activeButton.classList.add("pressed");
 
+   setTimeout(function() {
+    activeButton.classList.remove("pressed")
+   },100);
+
+}   

@@ -2,14 +2,18 @@
 
 let gamePattern = [];
 let buttonColours = ["red", "blue", "green", "yellow"]
-let randomChosenColour = buttonColours[nextSequence()];
+
 
 
 function nextSequence(){
     
     let randomNumber = Math.round(Math.random()*3);
-    return randomNumber;
-}
+    let randomChosenColour = buttonColours[randomNumber];
+    
+    gamePattern.push(randomChosenColour);
 
-gamePattern.push(randomChosenColour);
-console.log(gamePattern);
+    $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100)
+
+    let audio = new Audio("sounds/" + randomChosenColour + ".mp3");
+    audio.play();
+}

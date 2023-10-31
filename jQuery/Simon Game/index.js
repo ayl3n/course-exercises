@@ -15,6 +15,8 @@ let buttonColours = ["red", "blue", "green", "yellow"]
 
 function nextSequence(){
     
+    level++;
+    $("h1").text("Level " + level);
     let randomNumber = Math.floor(Math.random()*4);
     let randomChosenColour = buttonColours[randomNumber];
     
@@ -39,4 +41,20 @@ function animatePress(currentColour){
     setTimeout(function(){
         $("#" + currentColour).removeClass("pressed")
     }, 100);
-    }
+}
+
+
+let started = false;
+let level = 0;
+
+
+$(document).keydown(function(){
+    
+    if (!started){
+        $("h1").text("Level "+ level)
+        nextSequence()
+        started = true;
+    }   
+})
+
+

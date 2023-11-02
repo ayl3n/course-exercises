@@ -26,6 +26,7 @@ $(".btn").click(function(){
 });
 
 function checkAnswer(currentLevel){
+    console.log("checkAnswer")
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel]){
 
         if (userClickedPattern.length === gamePattern.length){
@@ -60,7 +61,7 @@ function nextSequence(){
     $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100)
 
     playSound(randomChosenColour);
-    
+    console.log("nextSequence")
 }
 
 function playSound(name){
